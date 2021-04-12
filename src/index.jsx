@@ -1,9 +1,10 @@
 import { render } from 'react-dom';
 
 import "./index.scss";
+import { Router } from './router';
 
-const App = () => (
-  <h1>Hello World</h1>
+const PokedexApp = () => (
+  <Router />
 );
 
-render(<App />, document.getElementById('root'));
+render(<PokedexApp />, document.getElementById('root'));
