@@ -24,7 +24,7 @@
     "semi": [2, "always"],
     "indent": ["error", 2],
     "object-curly-spacing": ["error", "always"],
-    "no-extra-parens": "error",
+    "no-extra-parens": "off",
     "max-len": ["error", { "code": 100 }],
     "no-multi-spaces": "error",
     "react/jsx-uses-react": "off",
