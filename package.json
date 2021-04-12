@@ -6,8 +6,10 @@
   "author": "Mikael Messias <mikaelpmessias@gmail.com>",
   "license": "MIT",
   "scripts": {
-    "dev": "webpack serve",
-    "build": "cross-env NODE_ENV=production webpack"
+    "start": "webpack serve",
+    "build": "cross-env NODE_ENV=production webpack",
+    "lint": "eslint ./",
+    "lint:fix": "eslint --fix ./"
   },
   "dependencies": {
     "react": "^17.0.2",
@@ -16,12 +18,17 @@
   "devDependencies": {
     "@babel/cli": "^7.13.14",
     "@babel/core": "^7.13.15",
+    "@babel/eslint-parser": "^7.13.14",
     "@babel/preset-env": "^7.13.15",
     "@babel/preset-react": "^7.13.13",
     "@pmmmwh/react-refresh-webpack-plugin": "^0.4.3",
     "babel-loader": "^8.2.2",
     "cross-env": "^7.0.3",
     "css-loader": "^5.2.1",
+    "eslint": "^7.24.0",
+    "eslint-plugin-react": "^7.23.2",
+    "eslint-watch": "^7.0.0",
+    "eslint-webpack-plugin": "^2.5.3",
     "html-webpack-plugin": "^5.3.1",
     "node-sass": "^5.0.0",
     "react-refresh": "^0.10.0",

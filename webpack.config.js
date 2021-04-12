@@ -1,6 +1,7 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const ReactRefreshWebpackPlugin = require('@pmmmwh/react-refresh-webpack-plugin');
+const ESLintPlugin = require('eslint-webpack-plugin');
 
 const isDevelopment = process.env.NODE_ENV !== 'production';
 
@@ -24,6 +25,7 @@ module.exports = {
   },
   plugins: [
     isDevelopment && new ReactRefreshWebpackPlugin(),
+    isDevelopment && new ESLintPlugin(),
     new HtmlWebpackPlugin({
       template: path.resolve(__dirname, 'public', 'index.html')
     })
@@ -49,4 +51,4 @@ module.exports = {
       },
     ],
   }
-} 
+};
