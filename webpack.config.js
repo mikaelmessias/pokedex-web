@@ -15,6 +15,14 @@ module.exports = {
   },
   resolve: {
     extensions: ['.js', '.jsx'],
+    alias: {
+      '@Assets': path.resolve(__dirname, 'src/assets'),
+      '@Pages': path.resolve(__dirname, 'src/pages'),
+      '@Router': path.resolve(__dirname, 'src/router'),
+      '@Sass': path.resolve(__dirname, 'src/sass'),
+      '@Services': path.resolve(__dirname, 'src/services'),
+      '@Store': path.resolve(__dirname, 'src/store'),
+    }
   },
   devServer: {
     contentBase: path.resolve(__dirname, 'public'),

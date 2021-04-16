@@ -1,0 +1,16 @@
+// jsconfig.json
+
+{
+  "compilerOptions": {
+    "baseUrl": ".",
+    "paths": {
+      "@Assets/*": ["./src/assets/*"],
+      "@Pages/*": ["./src/pages/*"],
+      "@Router/*": ["./src/router/*"],
+      "@Sass/*": ["./src/sass/*"],
+      "@Services/*": ["./src/services/*"],
+      "@Store/*": ["./src/store/*"],
+    }
+  },
+  "exclude": ["node_modules", "build"]
+}
