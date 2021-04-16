@@ -4,8 +4,9 @@
   "compilerOptions": {
     "baseUrl": ".",
     "paths": {
+      "~/*": ["./src/*"],
       "@Assets/*": ["./src/assets/*"],
-      "@Components/*": ["./src/Components/*"],
+      "@Components/*": ["./src/components/*"],
       "@Pages/*": ["./src/pages/*"],
       "@Router/*": ["./src/router/*"],
       "@Sass/*": ["./src/sass/*"],
