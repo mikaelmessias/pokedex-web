@@ -4,7 +4,6 @@ import store from './store';
 import { Router } from './router';
 
 import "./sass/_global.scss";
-import "./sass/_typography.scss";
 
 const PokedexApp = () => (
   <Provider store={store}>
