@@ -1,0 +1,14 @@
+@import './variables';
+
+* {
+  padding: 0;
+  margin: 0;
+}
+
+ul li {
+  margin-left: 25px;
+}
+
+body, button, input, *::after, *::before {
+  font-family: $font-primary, sans-serif;
+}

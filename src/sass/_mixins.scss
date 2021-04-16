@@ -1,0 +1,37 @@
+@import './variables';
+
+@mixin sm_breakpoint {
+  @media (min-width: #{$screen-sm}) {
+    @content;
+  }
+}
+
+@mixin md_breakpoint {
+  @media (min-width: #{$screen-md}) {
+    @content;
+  }
+}
+
+@mixin lg_breakpoint {
+  @media (min-width: #{$screen-lg}) {
+    @content;
+  }
+}
+
+@mixin xl_breakpoint {
+  @media (min-width: #{$screen-xl}) {
+    @content;
+  }
+}
+
+@mixin min_reakPoint($size) {
+  @media (min-width: $size+'px') {
+    @content;
+  }
+}
+
+@mixin max_breakPoint($size) {
+  @media (max-width: $size+'px') {
+    @content;
+  }
+}
