@@ -49,6 +49,18 @@ module.exports = {
         exclude: /node_modules/,
         use: ['style-loader', 'css-loader', 'sass-loader']
       },
+      {
+        test: /\.(woff2?|ttf|otf|eot)$/,
+        exclude: /node_modules/,
+        use: [
+          {
+            loader: "file-loader",
+            options: {
+              name: '[path][name].[ext]'
+            }
+          },
+        ],
+      },
     ],
   }
 };
