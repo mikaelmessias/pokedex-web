@@ -1,0 +1,30 @@
+@keyframes spin { 
+  0% { 
+    transform: scale(1);
+  }
+  50% { 
+    transform: scale(1.1);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+.loading-overlay {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  background-color: rgba(0,0,0,0.3);
+  backdrop-filter: blur(10px);
+
+  &__spinner {
+    transform: rotate(0deg);
+    animation-name: spin;
+    animation-duration: 1000ms;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+  }
+}
