@@ -59,7 +59,7 @@ module.exports = {
         use: ['style-loader', 'css-loader', 'sass-loader']
       },
       {
-        test: /\.(woff2?|ttf|otf|eot)$/,
+        test: /\.(woff2?|ttf|otf|eot|png)$/,
         exclude: /node_modules/,
         use: [
           {
