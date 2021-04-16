@@ -18,7 +18,7 @@ export default function* rootSaga() {
       PokemonSagas.fetchPokemonsPrevPage,
     ),
     takeLatest(
-      PokemonTypes.FETCH_ONE_POKEMON,
+      PokemonTypes.FETCH_POKEMON,
       PokemonSagas.fetchPokemon,
     ),
   ]);

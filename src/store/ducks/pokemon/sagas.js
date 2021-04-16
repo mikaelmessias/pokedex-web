@@ -57,8 +57,10 @@ export function* fetchPokemon(action) {
   yield put(setLoading(true));
 
   try {
-    const { pokemonId } = action.payload;
-    const { data } = yield call(axios.get, `https://pokeapi.co/api/v2/pokemon/${pokemonId}`);
+    const pokemonUrl = action.payload;
+    
+    const { data } = yield call(axios.get, pokemonUrl);
+
     yield put(setPokemon(data));
   } catch (err) {
     yield put(setError(true));

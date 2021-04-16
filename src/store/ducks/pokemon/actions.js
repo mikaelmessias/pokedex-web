@@ -33,6 +33,6 @@ export const fetchNextPage = () => ({
 });
 
 export const fetchOnePokemon = (state) => ({
-  type: t.FETCH_ONE_POKEMON,
+  type: t.FETCH_POKEMON,
   payload: state,
 });
