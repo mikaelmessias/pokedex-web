@@ -1,4 +1,5 @@
-@import '~/sass/animations';
+@import '@Sass/animations';
+@import '@Sass/variables';
 
 .loading-overlay {
   width: 100%;
@@ -7,14 +8,20 @@
   align-items: center;
   justify-content: center;
   position: absolute;
-  background-color: rgba(255, 252, 159, 0.3);
-  backdrop-filter: blur(5px);
+  z-index: map-get($z-index, overlay);
+  visibility: hidden;
+  transition: backdrop-filter 0.3s ease-in-out;
 
-  &__spinner {
-    transform: rotate(0deg);
-    animation-name: spin;
-    animation-duration: 1500ms;
-    animation-iteration-count: infinite;
-    animation-timing-function: linear;
+  &.is--loading {
+    background-color: rgba(255, 252, 159, 0.3);
+    backdrop-filter: blur(5px);
+    visibility: visible;
+
+    img {
+      animation-name: spin;
+      animation-duration: 1500ms;
+      animation-iteration-count: infinite;
+      animation-timing-function: linear;
+    }
   }
 }
