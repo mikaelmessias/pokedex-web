@@ -1,8 +1,8 @@
 {
-  "name": "desafio-softexpert-pokedex",
+  "name": "pokedex",
   "version": "1.0.0",
   "main": "index.js",
-  "repository": "git@github.com:mikaelmessias/desafio-softexpert-pokedex.git",
+  "repository": "git@github.com:mikaelmessias/pokedex.git",
   "author": "Mikael Messias <mikaelpmessias@gmail.com>",
   "license": "MIT",
   "scripts": {
