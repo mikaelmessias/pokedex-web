@@ -50,7 +50,8 @@ export const Pagination = (props) => {
       </button>
 
       <div className="pagination__pages">
-        Página: {currentPage}/{serializedTotal}
+        <span>Página:</span>
+        <span>{currentPage}/{serializedTotal}</span>
       </div>
 
       <button

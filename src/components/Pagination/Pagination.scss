@@ -1,40 +1,73 @@
 @import '@Sass/variables';
+@import '@Sass/mixins';
 
 .pagination {
   width: 100%;
   display: flex;
-  align-items: center;
-  background-color: $red;
-  color: white;
+  align-items: stretch;
+  background-color: $yellow;
+  border-top: 1px solid $grey;
+  color: $grey;
   position: fixed;
   bottom: 0;
   box-sizing: border-box;
-  height: 50px;
   z-index: map-get($z-index, pagination);
 
   &__pages {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
     flex-grow: 1;
     text-align: center;
+    padding: 4px 0;
+    border-left: 1px solid $grey;
+    border-right: 1px solid $grey;
   }
 
   &__button {
-    width: 300px;
-    height: 100%;
+    width: 100px;
     border: 0;
     outline: none;
     border-radius: 0;
     background: none;
-    transition: all 180ms;
-    color: $white;
+    transition: all 120ms;
     text-transform: uppercase;
     cursor: pointer;
 
+    &--prev {
+      &:hover {
+        background: $red;
+      }
+    }
+
+    &--next {
+      &:hover {
+        background: $blue;
+      }
+    }
+
     &:hover {
-      background: $blue-dark;
+      color: $white;
     }
 
     &:disabled {
       opacity: 0.5;
+    }
+  }
+
+  @include md_breakpoint {
+    &__pages {
+      flex-direction: row;
+      padding: 12px 0;
+
+      span:first-child {
+        margin-right: 6px;
+      }
+    }
+
+    &__button {
+      width: 300px;
     }
   }
 }
