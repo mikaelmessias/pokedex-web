@@ -2,12 +2,10 @@ import * as t from './types';
 
 const INITIAL_STATE = {
   isLoading: false,
+  isError: false,
+  pokemon: null,
   pokemons: [],
   count: 0,
-  next: '',
-  previous: '',
-  pokemonUrl: '',
-  pokemon: null,
 };
 
 export default function reducer(state = INITIAL_STATE, { type, payload }) {
@@ -15,17 +13,13 @@ export default function reducer(state = INITIAL_STATE, { type, payload }) {
     case t.LOADING:
       return { ...state, isLoading: payload };
     case t.ERROR:
-      return { ...state, error: payload };
+      return { ...state, isError: payload };
     case t.SET_POKEMON_LIST:
       return {
         ...state,
-        pokemons: payload.results,
+        pokemons: payload.pokemons,
         count: payload.count,
-        previous: payload.previous,
-        next: payload.next,
       };
-    case t.FETCH_POKEMON:
-      return { ...state, pokemonUrl: payload };
     case t.SET_POKEMON:
       return { ...state, pokemon: payload };
     default:

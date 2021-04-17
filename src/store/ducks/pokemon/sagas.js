@@ -1,67 +1,56 @@
-import { call, put, select } from 'redux-saga/effects';
+import { call, put, all, select } from 'redux-saga/effects';
 
-import axios from 'axios';
+import { axios as api } from '@Services/axios';
 
 import {
   setLoading,
   setError,
   setPokemonList,
-  setPokemon,
 } from './actions';
+
+export function* fetchPokemonDetails(list) {
+  const responses = yield all(list.map(({ name }) => (
+    call(api.get, `/pokemon/${name}`)))
+  );
+
+  const pokemons = responses.map(({ data }, index) => {
+    const { id, types, sprites } = data;
+
+    let backgroundColor = types[0].type.name;
+
+    if (backgroundColor === 'normal' && types.length > 1) {
+      backgroundColor = types[1].type.name;
+    }
+
+    return {
+      id,
+      name: list[index].name,
+      backgroundColor: backgroundColor,
+      cardImage: sprites.other['official-artwork'].front_default,
+      backImage: sprites.back_default,
+      frontImage: sprites.front_default,
+      weight: data.weight,
+      height: data.height,
+      type: types.map(({ type: { name } }) => name),
+    };
+  });
+
+  return pokemons;
+}
 
 export function* fetchPokemons() {
   yield put(setLoading(true));
 
   try {
-    const { data } = yield call(axios.get, 'https://pokeapi.co/api/v2/pokemon');
+    const { offset, limit } = yield select((state) => state.pagination);
+    const query = `/pokemon/?limit=${limit}&offset=${offset}`;
 
-    yield put(setPokemonList(data));
-  } catch (err) {
-    yield put(setError(true));
-  } finally {
-    yield put(setLoading(false));
-  }
-}
+    const { data: list } = yield call(api.get, query);
+    const { count, results } = list;
 
-export function* fetchPokemonsNextPage() {
-  yield put(setLoading(true));
+    const pokemons = yield fetchPokemonDetails(results);
 
-  try {
-    const { next } = yield select((state) => state.pokemon);
-    const { data } = yield call(axios.get, next);
-
-    yield put(setPokemonList(data));
-  } catch (err) {
-    yield put(setError(true));
-  } finally {
-    yield put(setLoading(false));
-  }
-}
-
-export function* fetchPokemonsPrevPage() {
-  yield put(setLoading(true));
-
-  try {
-    const { previous } = yield select((state) => state.pokemon);
-    const { data } = yield call(axios.get, previous);
-
-    yield put(setPokemonList(data));
-  } catch (err) {
-    yield put(setError(true));
-  } finally {
-    yield put(setLoading(false));
-  }
-}
-
-export function* fetchPokemon(action) {
-  yield put(setLoading(true));
-
-  try {
-    const pokemonUrl = action.payload;
-    
-    const { data } = yield call(axios.get, pokemonUrl);
-
-    yield put(setPokemon(data));
+    yield put(setPokemonList({ count, pokemons }));
   } catch (err) {
     yield put(setError(true));
   } finally {

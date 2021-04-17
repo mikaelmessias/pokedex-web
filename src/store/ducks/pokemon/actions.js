@@ -23,16 +23,3 @@ export const setPokemon = (state) => ({
 export const fetchPokemonList = () => ({
   type: t.FETCH_POKEMON_LIST,
 });
-
-export const fetchPrevPage = () => ({
-  type: t.FETCH_PREV_PAGE,
-});
-
-export const fetchNextPage = () => ({
-  type: t.FETCH_NEXT_PAGE,
-});
-
-export const fetchOnePokemon = (state) => ({
-  type: t.FETCH_POKEMON,
-  payload: state,
-});

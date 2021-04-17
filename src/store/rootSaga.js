@@ -9,17 +9,5 @@ export default function* rootSaga() {
       PokemonTypes.FETCH_POKEMON_LIST,
       PokemonSagas.fetchPokemons,
     ),
-    takeLatest(
-      PokemonTypes.FETCH_NEXT_PAGE,
-      PokemonSagas.fetchPokemonsNextPage,
-    ),
-    takeLatest(
-      PokemonTypes.FETCH_PREV_PAGE,
-      PokemonSagas.fetchPokemonsPrevPage,
-    ),
-    takeLatest(
-      PokemonTypes.FETCH_POKEMON,
-      PokemonSagas.fetchPokemon,
-    ),
   ]);
 }
