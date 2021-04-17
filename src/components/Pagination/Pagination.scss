@@ -1,0 +1,40 @@
+@import '@Sass/variables';
+
+.pagination {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  background-color: $red;
+  color: white;
+  position: fixed;
+  bottom: 0;
+  box-sizing: border-box;
+  height: 50px;
+  z-index: map-get($z-index, pagination);
+
+  &__pages {
+    flex-grow: 1;
+    text-align: center;
+  }
+
+  &__button {
+    width: 300px;
+    height: 100%;
+    border: 0;
+    outline: none;
+    border-radius: 0;
+    background: none;
+    transition: all 180ms;
+    color: $white;
+    text-transform: uppercase;
+    cursor: pointer;
+
+    &:hover {
+      background: $blue-dark;
+    }
+
+    &:disabled {
+      opacity: 0.5;
+    }
+  }
+}
