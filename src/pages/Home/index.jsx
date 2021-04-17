@@ -1,33 +1,15 @@
-import { useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import {
-  fetchNextPage,
-  fetchPokemonList,
-  fetchPrevPage,
-} from '@Store/ducks/pokemon/actions';
+import { useState } from 'react';
+import { useSelector } from 'react-redux';
 import { LoadingOverlay } from '@Components/LoadingOverlay/LoadingOverlay';
 import { Pagination } from '@Components/Pagination/Pagination';
 import { PokemonList } from './components/PokemonList/PokemonList';
-
 import PokeDexLogo from '@Assets/images/logo.png';
 
 import './styles.scss';
 
 export const HomePage = () => {
-  const dispatch = useDispatch();
   const { count, isLoading } = useSelector((state) => state.pokemon);
-
-  useEffect(() => {
-    dispatch(fetchPokemonList());
-  }, []);
-
-  const onPrevButtonClick = () => {
-    dispatch(fetchPrevPage());
-  };
-
-  const onNextButtonClick = () => {
-    dispatch(fetchNextPage());
-  };
+  const [customLimit, setCustomLimit] = useState(12);
 
   return (
     <>
@@ -44,8 +26,7 @@ export const HomePage = () => {
 
           <Pagination
             total={count}
-            onPrev={onPrevButtonClick}
-            onNext={onNextButtonClick}
+            limit={customLimit}
           />
         </main>
       </section>

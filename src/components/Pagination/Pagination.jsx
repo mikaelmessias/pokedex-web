@@ -1,23 +1,41 @@
-import { useState } from "react";
+import { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import PropTypes from 'prop-types';
+import {
+  setCurrentPage,
+  setOffset,
+  setLimit,
+} from '~/store/ducks/pagination/actions';
+import { fetchPokemonList } from '~/store/ducks/pokemon/actions';
 
 import './Pagination.scss';
 
 export const Pagination = (props) => {
-  const { total, onNext, onPrev } = props;
+  const { total, limit: customLimit } = props;
 
-  const [currentPage, setCurrentPage] = useState(1);
+  const dispatch = useDispatch();
+  const { currentPage, offset, limit } = useSelector((state) => state.pagination);
+
   const serializedTotal = Math.round(parseFloat(total / 20));
 
+  useEffect(() => {
+    dispatch(setLimit(customLimit));
+  }, []);
+
+  useEffect(() => {
+    dispatch(fetchPokemonList());
+  }, [offset]);
 
   const handlePrev = () => {
-    setCurrentPage(currentPage - 1);
-    onPrev();
+    dispatch(setOffset(offset - limit));
+    dispatch(setCurrentPage(currentPage - 1));
+    dispatch(fetchPokemonList());
   };
   
   const handleNext = () => {
-    setCurrentPage(currentPage + 1);
-    onNext();
+    dispatch(setOffset(offset + limit));
+    dispatch(setCurrentPage(currentPage + 1));
+    dispatch(fetchPokemonList());
   };
 
   return (
@@ -48,7 +66,10 @@ export const Pagination = (props) => {
 };
 
 Pagination.propTypes = {
+  limit: PropTypes.number.isRequired,
   total: PropTypes.number.isRequired,
-  onNext: PropTypes.func.isRequired,
-  onPrev: PropTypes.func.isRequired,
+};
+
+Pagination.defaultProps = {
+  limit: 20,
 };
