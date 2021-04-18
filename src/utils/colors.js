@@ -18,3 +18,12 @@ export const background = {
   steel: '#4C91B2',
   water: '#58ABF6',
 };
+
+export const statsbg = {
+  hp: '#a4f08c',
+  attack: '#f08c8c',
+  defense: '#8cadf0',
+  specialattack: '#f06c6c',
+  specialdefense: '#6c7ff0',
+  speed: '#8ce5f0',
+};

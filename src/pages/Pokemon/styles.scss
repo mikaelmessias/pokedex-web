@@ -33,4 +33,20 @@
 .pokemon-section {
   display: flex;
   padding: 0 32px;
+
+  .pokemon {
+    &__main {
+      width: 100%;
+      display: flex;
+      padding: 0 32px;
+
+      .pokemon-name-measures {
+        margin-right: 80px;
+      }
+
+      .pokemon-type-stats {
+        flex-grow: 1;
+      }
+    }
+  }
 }

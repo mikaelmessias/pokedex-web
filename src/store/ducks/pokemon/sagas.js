@@ -30,6 +30,10 @@ export function* fetchPokemonDetails(list) {
       frontImage: sprites.front_default,
       weight: data.weight,
       height: data.height,
+      stats: data.stats.map((item) => ({
+        name: item.stat.name,
+        base_stat: item.base_stat,
+      })),
       type: types.map(({ type: { name } }) => name),
     };
   });
@@ -82,6 +86,10 @@ export function* fetchPokemon(action) {
       frontImage: sprites.front_default,
       weight: data.weight,
       height: data.height,
+      stats: data.stats.map((item) => ({
+        name: item.stat.name,
+        base_stat: item.base_stat,
+      })),
       type: types.map(({ type: { name } }) => name),
     };
 
