@@ -1,12 +1,8 @@
 
 @import '~/sass/variables';
 
-body {
-  background-color: $green;
-
-  .home {
-    &__content {
-      padding-bottom: 6px;
-    }
+.home {
+  &__content {
+    padding-bottom: 6px;
   }
 }
