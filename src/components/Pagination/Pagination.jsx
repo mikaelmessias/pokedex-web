@@ -19,12 +19,11 @@ export const Pagination = (props) => {
   const serializedTotal = Math.round(parseFloat(total / 20));
 
   useEffect(() => {
-    dispatch(setLimit(customLimit));
+    if (limit !== customLimit) {
+      dispatch(setLimit(customLimit));
+      dispatch(fetchPokemonList());
+    }
   }, []);
-
-  useEffect(() => {
-    dispatch(fetchPokemonList());
-  }, [offset]);
 
   const handlePrev = () => {
     dispatch(setOffset(offset - limit));
