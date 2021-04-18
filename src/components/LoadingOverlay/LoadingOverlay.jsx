@@ -1,9 +1,8 @@
 import './LoadingOverlay.scss';
-import PropTypes from 'prop-types';
-import classnames from 'classnames';
-
-import Pokeball from '@Assets/images/pokeball.png';
 import { useEffect } from 'react';
+import classnames from 'classnames';
+import PropTypes from 'prop-types';
+import Pokeball from '~/assets/images/pokeball.png';
 
 export const LoadingOverlay = (props) => {
   const { isLoading } = props;

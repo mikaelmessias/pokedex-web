@@ -1,7 +1,5 @@
 import { call, put, all, select } from 'redux-saga/effects';
-
-import { axios as api } from '@Services/axios';
-
+import { axios as api } from '~/services/axios';
 import {
   setLoading,
   setError,

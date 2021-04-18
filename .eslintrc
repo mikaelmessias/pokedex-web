@@ -1,24 +1,25 @@
 {
   "plugins": [
-      "react"
+    "react",
+    "eslint-plugin-import-helpers"
   ],
   "parser": "@babel/eslint-parser",
   "parserOptions": {
-      "ecmaVersion": 6,
-      "sourceType": "module",
-      "ecmaFeatures": {
-          "jsx": true
-      }
+    "ecmaVersion": 6,
+    "sourceType": "module",
+    "ecmaFeatures": {
+        "jsx": true
+    }
   },
   "env": {
-      "es6":     true,
-      "browser": true,
-      "node":    true,
-      "mocha":   true
+    "es6":     true,
+    "browser": true,
+    "node":    true,
+    "mocha":   true
   },
   "extends": [
-      "eslint:recommended",
-      "plugin:react/recommended"
+    "eslint:recommended",
+    "plugin:react/recommended"
   ],
   "rules": {
     "semi": [2, "always"],
@@ -28,11 +29,34 @@
     "max-len": ["error", { "code": 100 }],
     "no-multi-spaces": "error",
     "react/jsx-uses-react": "off",
-    "react/react-in-jsx-scope": "off"
+    "react/react-in-jsx-scope": "off",
+    "import-helpers/order-imports": [
+      "warn",
+      {
+        "newlinesBetween": "never",
+        "groups": [
+          "/^react/",
+          "module",
+          "/^~/(routes|services|store)/",
+          "/^~/(assets|helpers|types|utils|hooks)/",
+          "/^~/(containers|components|pages)/",
+          ["parent", "sibling", "index"]
+        ],
+        "alphabetize": {
+          "order": "asc",
+          "ignoreCase": true
+        }
+      }
+    ]
   },
   "settings": {
     "react": {
       "version": "17.0.2"
-    }
+    },
+    "import/extensions": [
+      ".js",
+      ".jsx"
+    ],
+    "import/resolver": "webpack"
   }
 }

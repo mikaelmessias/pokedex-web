@@ -1,9 +1,9 @@
 import { useState } from 'react';
 import { useSelector } from 'react-redux';
-import { LoadingOverlay } from '@Components/LoadingOverlay/LoadingOverlay';
-import { Pagination } from '@Components/Pagination/Pagination';
+import PokeDexLogo from '~/assets/images/logo.png';
+import { LoadingOverlay } from '~/components/LoadingOverlay/LoadingOverlay';
+import { Pagination } from '~/components/Pagination/Pagination';
 import { PokemonList } from './components/PokemonList/PokemonList';
-import PokeDexLogo from '@Assets/images/logo.png';
 
 import './styles.scss';
 

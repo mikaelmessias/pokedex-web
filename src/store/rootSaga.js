@@ -1,5 +1,4 @@
 import { takeLatest, all } from 'redux-saga/effects';
-
 import * as PokemonSagas from './ducks/pokemon/sagas';
 import * as PokemonTypes from './ducks/pokemon/types';
 

@@ -1,7 +1,7 @@
-const path = require('path');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
 const ReactRefreshWebpackPlugin = require('@pmmmwh/react-refresh-webpack-plugin');
 const ESLintPlugin = require('eslint-webpack-plugin');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+const path = require('path');
 
 const isDevelopment = process.env.NODE_ENV !== 'production';
 
@@ -17,13 +17,6 @@ module.exports = {
     extensions: ['.js', '.jsx'],
     alias: {
       '~': path.resolve(__dirname, 'src/'),
-      '@Components': path.resolve(__dirname, 'src/components'),
-      '@Assets': path.resolve(__dirname, 'src/assets'),
-      '@Pages': path.resolve(__dirname, 'src/pages'),
-      '@Router': path.resolve(__dirname, 'src/router'),
-      '@Sass': path.resolve(__dirname, 'src/sass'),
-      '@Services': path.resolve(__dirname, 'src/services'),
-      '@Store': path.resolve(__dirname, 'src/store'),
     }
   },
   devServer: {
