@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { useSelector } from 'react-redux';
-import PokeDexLogo from '~/assets/images/logo.png';
+import { Header } from '~/components/Header/Header';
 import { LoadingOverlay } from '~/components/LoadingOverlay/LoadingOverlay';
 import { Pagination } from '~/components/Pagination/Pagination';
 import { PokemonList } from './components/PokemonList/PokemonList';
@@ -14,13 +14,9 @@ export const HomePage = () => {
   return (
     <>
       <LoadingOverlay isLoading={isLoading} />
+      <Header className="home__header" />
 
       <section className="home">
-
-        <header className="home__header">
-          <img src={PokeDexLogo} alt="PokeDex!" title="Logo da aplicação" />
-        </header>
-
         <main className="home__content">
           <PokemonList />
 
