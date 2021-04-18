@@ -1,17 +1,21 @@
 import { useDispatch } from "react-redux";
+import { useHistory } from "react-router";
 import PropTypes from "prop-types";
 import { setPokemon } from "~/store/ducks/pokemon";
 import "./PokemonCard.scss";
-import { background } from './utils';
+import { background } from '~/utils/colors';
 
 export const PokemonCard = ({ pokemon }) => {
   const dispatch = useDispatch();
+  const history = useHistory();
+
   const {
     matches: isDesktop
   } = window.matchMedia("(min-width: 768px)");
 
   const handleCardClick = () => {
     dispatch(setPokemon(pokemon));
+    history.push(`/pokemon/${pokemon.id}`);
   };
 
   return (

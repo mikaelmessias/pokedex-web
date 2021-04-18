@@ -1,0 +1,36 @@
+@import '~/sass/variables';
+
+.pokemon-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: $yellow;
+  border-bottom: 1px solid $grey;
+  padding: 10px 32px;
+  margin-bottom: 32px;
+
+  img {
+    width: 180px;
+  }
+
+  button {
+    width: 100px;
+    height: 30px;
+    border: 1px solid $grey;
+    background-color: $red;
+    outline: none;
+    transition: background-color 120ms, color 120ms;
+    cursor: pointer;
+    color: $white;
+
+    &:hover {
+      background-color: $green;
+      color: $grey;
+    }
+  }
+}
+
+.pokemon-section {
+  display: flex;
+  padding: 0 32px;
+}
