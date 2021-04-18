@@ -4,6 +4,7 @@ import {
   setLoading,
   setError,
   setPokemonList,
+  setPokemon,
 } from './actions';
 
 export function* fetchPokemonDetails(list) {
@@ -49,6 +50,42 @@ export function* fetchPokemons() {
     const pokemons = yield fetchPokemonDetails(results);
 
     yield put(setPokemonList({ count, pokemons }));
+  } catch (err) {
+    yield put(setError(true));
+  } finally {
+    yield put(setLoading(false));
+  }
+}
+
+export function* fetchPokemon(action) {
+  yield put(setLoading(true));
+
+  try {
+    const pokemonId = action.payload;
+
+    const { data } = yield call(api.get, `/pokemon/${pokemonId}`);
+
+    const { id, types, sprites } = data;
+
+    let backgroundColor = types[0].type.name;
+
+    if (backgroundColor === 'normal' && types.length > 1) {
+      backgroundColor = types[1].type.name;
+    }
+
+    const pokemon = {
+      id,
+      name: data.name,
+      backgroundColor: backgroundColor,
+      cardImage: sprites.other['official-artwork'].front_default,
+      backImage: sprites.back_default,
+      frontImage: sprites.front_default,
+      weight: data.weight,
+      height: data.height,
+      type: types.map(({ type: { name } }) => name),
+    };
+
+    yield put(setPokemon(pokemon));
   } catch (err) {
     yield put(setError(true));
   } finally {

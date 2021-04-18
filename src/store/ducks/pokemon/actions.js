@@ -23,3 +23,8 @@ export const setPokemon = (state) => ({
 export const fetchPokemonList = () => ({
   type: t.FETCH_POKEMON_LIST,
 });
+
+export const fetchPokemon = (state) => ({
+  type: t.FETCH_POKEMON,
+  payload: state,
+});

@@ -6,6 +6,7 @@ const INITIAL_STATE = {
   pokemon: null,
   pokemons: [],
   count: 0,
+  pokemonId: 0,
 };
 
 export default function reducer(state = INITIAL_STATE, { type, payload }) {
@@ -22,6 +23,9 @@ export default function reducer(state = INITIAL_STATE, { type, payload }) {
       };
     case t.SET_POKEMON:
       return { ...state, pokemon: payload };
+    case t.FETCH_POKEMON:
+      console.log(payload);
+      return { ...state, pokemonId: payload };
     default:
       return state;
   }

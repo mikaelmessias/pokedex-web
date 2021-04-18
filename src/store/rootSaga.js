@@ -8,5 +8,9 @@ export default function* rootSaga() {
       PokemonTypes.FETCH_POKEMON_LIST,
       PokemonSagas.fetchPokemons,
     ),
+    takeLatest(
+      PokemonTypes.FETCH_POKEMON,
+      PokemonSagas.fetchPokemon,
+    ),
   ]);
 }
