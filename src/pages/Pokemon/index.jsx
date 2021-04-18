@@ -59,14 +59,16 @@ export const PokemonPage = () => {
           <main className="pokemon-main">
             <Slider items={items} color={background[pokemon.backgroundColor]} />
 
-            <div className="pokemon-name-measures">
-              <PokemonName name={pokemon.name} />
-              <PokemonMeasures height={pokemon.height} weight={pokemon.weight} />
-            </div>
-            <div className="pokemon-type-stats">
-              <PokemonType types={pokemon.type} />
-              <PokemonStats stats={pokemon.stats} />
-            </div>
+            <section className="pokemon-main__right">
+              <div className="pokemon-name-measures">
+                <PokemonName name={pokemon.name} />
+                <PokemonMeasures height={pokemon.height} weight={pokemon.weight} />
+              </div>
+              <div className="pokemon-type-stats">
+                <PokemonType types={pokemon.type} />
+                <PokemonStats stats={pokemon.stats} />
+              </div>
+            </section>
           </main>
 
           <PokemonAbilities names={pokemon.abilities} />

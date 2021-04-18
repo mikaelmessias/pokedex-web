@@ -1,4 +1,5 @@
 @import '~/sass/variables';
+@import '~/sass/mixins';
 
 .pokemon-abilities {
   display: flex;
@@ -49,6 +50,14 @@
         font-size: 12px;
         letter-spacing: 2px;
       }
+    }
+  }
+
+  @include max_breakPoint(767) {
+    flex-direction: column;
+
+    .pokemon-ability {
+      margin-bottom: 18px;
     }
   }
 }

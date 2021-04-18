@@ -1,9 +1,9 @@
 @import '~/sass/variables';
+@import '~/sass/mixins';
 
 .pokemon-stats {
   display: flex;
   flex-direction: column;
-  margin-bottom: 24px;
   box-sizing: border-box;
 
   &--title {
@@ -15,7 +15,8 @@
 }
 
 .pokemon-stat-items {
-  display: flex;
+  display: grid;
+  gap: 18px;
 
   .pokemon-stat {
     margin-right: 18px;
@@ -32,5 +33,13 @@
     &--text {
       font-size: 22px;
     }
+  }
+
+  @include max_breakPoint(1199) {
+    grid-template-columns: repeat(3,1fr);
+  }
+  
+  @include xl_breakpoint {
+    grid-template-columns: repeat(6,1fr);
   }
 }

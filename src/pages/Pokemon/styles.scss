@@ -1,4 +1,5 @@
 @import '~/sass/variables';
+@import '~/sass/mixins';
 
 .pokemon-header {
   display: flex;
@@ -39,14 +40,51 @@
     display: flex;
     width: 100%;
     margin-bottom: 32px;
-
-    .pokemon-name-measures {
-      margin-left: 32px;
-      margin-right: 80px;
+    
+    .slider-wrapper {
+      height: max-content;
     }
 
-    .pokemon-type-stats {
-      flex-grow: 1;
+    &__right {
+      display: flex;
+
+      .pokemon-name-measures {
+        margin-right: 80px;
+      }
+  
+      .pokemon-type-stats {
+        flex-grow: 1;
+      }
+    }
+  }
+
+  @include max_breakPoint(767) {
+    .pokemon-main {
+      flex-direction: column;
+
+      &__right {
+        margin-top: 32px;
+      }
+    }
+  }
+
+  @include min_breakPoint(768) {
+    .pokemon-main {
+      &__right {
+        margin-left: 32px;
+      }
+    }
+  }
+
+  @include max_breakPoint(1024) {
+    .pokemon-main {
+      &__right {
+        flex-direction: column;
+        
+        .pokemon-name-measures {
+          margin-bottom: 32px;
+        }
+      }
     }
   }
 }
