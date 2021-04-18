@@ -1,0 +1,88 @@
+@import '@Sass/variables';
+@import '@Sass/mixins';
+
+.pokemon-card {
+  margin: 0;
+  position: relative;
+  background-color: $white;
+  border: 1px solid $grey;
+  border-radius: 5px;
+  list-style: none;
+  transition: background-color 320ms, color 320ms;
+  overflow: hidden;
+
+  .pokemon-button {
+    width: 100%;
+    background: none;
+    border: 0;
+    outline: none;
+    cursor: pointer;
+    font-size: 14px;
+    color: $white;
+  
+    &__name {
+      position: absolute;
+      right: 0;
+      bottom: 0;
+      width: 100%;
+      text-align: center;
+      background-color: $grey;
+      ;
+      transition: bottom 320ms ease-in-out;
+    }
+  }
+
+  @include max_breakPoint(767) {
+    padding: 10px;
+    .pokemon-button {
+      &__picture {
+        width: 100%;
+        margin-bottom: 22px;
+      }
+
+      &__name {
+        padding: 6px;
+      }
+    }
+  }
+
+  @include md_breakpoint {
+    .pokemon-button {
+      &__picture {
+        width: 100%;
+        transition: width 320ms;
+      }
+
+      &__name {
+        bottom: -999px;
+        padding: 8px;
+        font-size: 16px;
+      }
+    }
+
+    &:hover {
+      background-color: $grey!important;
+  
+      .pokemon-button {
+        color: $white;
+  
+        &__picture {
+          width: 80%;
+        }  
+  
+        &__name {
+          bottom: 0;
+        }
+      }
+    }
+  }
+
+  @include md_breakpoint {
+    .pokemon-button {
+      &__picture {
+        font-size: 20px;
+        padding: 10px;
+      }
+    }
+  }
+}
