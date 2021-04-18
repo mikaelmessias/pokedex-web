@@ -1,0 +1,73 @@
+@import '~/sass/variables';
+
+.slider-wrapper {
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  position: relative;
+  border: 1px solid $grey;
+  width: 220px;
+
+  .slider {
+    &__items {
+      height: 220px;
+    }
+
+    &__item {
+      position: absolute;
+      // right: -999px;
+      transform: translate(999px);
+      transition: transform 180ms ease-in-out;
+      // background-color: $white;
+
+      &.is-prev {
+        // left: -999px;
+        transform: translate(-999px);
+        z-index: 0;
+      }
+  
+      &.is-active {
+        z-index: 1;
+        transform: translate(0px);
+      }
+
+      img {
+        width: 220px;
+        height: 220px;
+      }
+    }
+  }
+
+
+  .slider__actions {
+    width: 220px;
+    display: flex;
+    position: absolute;
+    align-items: flex-end;
+    justify-content: space-between;
+    /* flex-direction: column; */
+    z-index: 10;
+    padding: 15px;
+    bottom: 0;
+
+    button.slider-action {
+      width: 30px;
+      height: 30px;
+      border: 1px solid $grey;
+      border-radius: 0px;
+      background: $green;
+      color: $grey;
+      outline: none;
+      cursor: pointer;
+      transition: background-color 120ms;
+
+      &:hover {
+        background: $blue;
+      }
+
+      &:disabled {
+        opacity: 0.5;
+      }
+    }
+  }
+}
