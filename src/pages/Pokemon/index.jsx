@@ -8,6 +8,7 @@ import { Header } from '~/components/Header/Header';
 import { LoadingOverlay } from '~/components/LoadingOverlay/LoadingOverlay';
 import { Slider } from '~/components/Slider';
 import "./styles.scss";
+import { PokemonAbilities } from './Abilities/Abilities';
 import { PokemonMeasures } from './Measures/Measures';
 import { PokemonName } from './Name/Name';
 import { PokemonStats } from './Stats/Stats';
@@ -16,11 +17,17 @@ import { PokemonType } from './Type/Type';
 export const PokemonPage = () => {
   const query = useParams();
   const dispatch = useDispatch();
-  const { pokemon, isLoading } = useSelector((state) => state.pokemon);
+  const { pokemon, isLoading: pokemonLoading } = useSelector((state) => state.pokemon);
+  const { isLoading: abilitiesLoading } = useSelector((state) => state.abilities);
+
   const history = useHistory();
 
   const [items, setItems] = useState([]);
-  
+  const [isLoading, setLoading] = useState(false);
+
+  useEffect(() => {
+    setLoading(pokemonLoading || abilitiesLoading);
+  }, [pokemonLoading, abilitiesLoading]);
 
   useEffect(() => {
     if (!pokemon) {
@@ -49,11 +56,9 @@ export const PokemonPage = () => {
 
       {pokemon && (
         <section className="pokemon-section">
-          <aside className="pokemon__aside">
+          <main className="pokemon-main">
             <Slider items={items} color={background[pokemon.backgroundColor]} />
-          </aside>
 
-          <main className="pokemon__main">
             <div className="pokemon-name-measures">
               <PokemonName name={pokemon.name} />
               <PokemonMeasures height={pokemon.height} weight={pokemon.weight} />
@@ -63,6 +68,8 @@ export const PokemonPage = () => {
               <PokemonStats stats={pokemon.stats} />
             </div>
           </main>
+
+          <PokemonAbilities names={pokemon.abilities} />
         </section>
       )}
     </>

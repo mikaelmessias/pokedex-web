@@ -34,6 +34,7 @@ export function* fetchPokemonDetails(list) {
         name: item.stat.name,
         base_stat: item.base_stat,
       })),
+      abilities: data.abilities.map(({ ability }) => ability.name),
       type: types.map(({ type: { name } }) => name),
     };
   });
@@ -90,6 +91,7 @@ export function* fetchPokemon(action) {
         name: item.stat.name,
         base_stat: item.base_stat,
       })),
+      abilities: data.abilities.map(({ ability }) => ability.name),
       type: types.map(({ type: { name } }) => name),
     };
 
