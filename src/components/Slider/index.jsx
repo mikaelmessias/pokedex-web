@@ -3,7 +3,7 @@ import classNames from 'classnames';
 import PropTypes from 'prop-types';
 import "./styles.scss";
 
-export const Slider = ({ items, backgroundColor }) => {
+export const Slider = ({ items, color }) => {
   const [activeSlide, setActiveSlide] = useState(0);  
   const [slideDirection, setSlideDirection] = useState('rightToLeft');
 
@@ -21,7 +21,7 @@ export const Slider = ({ items, backgroundColor }) => {
   return (
     <div
       className="slider-wrapper" 
-      style={{ backgroundColor }}
+      style={{ backgroundColor: color }}
     >
       <div className="slider__items">
         {items.map(({ url, name }, index) => (
@@ -61,9 +61,9 @@ Slider.propTypes = {
     url: PropTypes.string,
     name: PropTypes.string,
   })).isRequired,
-  backgroundColor: PropTypes.string,
+  color: PropTypes.string,
 };
 
 Slider.defaultProps = {
-  backgroundColor: '#5db9ff',
+  color: '#5db9ff',
 };

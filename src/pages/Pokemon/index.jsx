@@ -45,7 +45,7 @@ export const PokemonPage = () => {
       {pokemon && (
         <section className="pokemon-section">
           <aside className="pokemon-aside">
-            <Slider items={items} background={background[pokemon.backgroundColor]} />
+            <Slider items={items} color={background[pokemon.backgroundColor]} />
           </aside>
 
           <main className="pokemon__main"></main>
