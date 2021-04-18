@@ -45,11 +45,11 @@ export const Pagination = (props) => {
         onClick={handlePrev}
         disabled={currentPage < 2}
       >
-          Anterior
+          Previous
       </button>
 
       <div className="pagination__pages">
-        <span>Página:</span>
+        <span>Page:</span>
         <span>{currentPage}/{serializedTotal}</span>
       </div>
 
@@ -59,7 +59,7 @@ export const Pagination = (props) => {
         onClick={handleNext}
         disabled={currentPage >= serializedTotal}
       >
-        Próxima
+        Next
       </button>
     </div>
   );

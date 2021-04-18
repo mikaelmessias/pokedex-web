@@ -3,7 +3,6 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useHistory, useParams } from 'react-router';
 import { fetchPokemon } from '~/store/ducks/pokemon';
 import { background } from '~/utils/colors';
-import { iconTypes } from '~/utils/iconTypes';
 import { Header } from '~/components/Header/Header';
 import { LoadingOverlay } from '~/components/LoadingOverlay/LoadingOverlay';
 import { Slider } from '~/components/Slider';
@@ -38,9 +37,9 @@ export const PokemonPage = () => {
   useEffect(() => {
     if (pokemon) {
       setItems([
-        { url: pokemon.cardImage, name: 'Arte oficial' },
-        { url: pokemon.frontImage, name: 'Imagem padrão - frente' },
-        { url: pokemon.backImage, name: 'Imagem padrão - costas' }
+        { url: pokemon.cardImage, name: 'Offical artwork' },
+        { url: pokemon.frontImage, name: 'Default image - front' },
+        { url: pokemon.backImage, name: 'Default image - back' }
       ]);
     }
   }, [pokemon]);

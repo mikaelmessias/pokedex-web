@@ -26,7 +26,7 @@ export const PokemonCard = ({ pokemon }) => {
         <img
           className="pokemon-button__picture"
           src={pokemon.cardImage}
-          alt={`Imagem do pokemon ${pokemon.name}`}
+          alt={`${pokemon.name} image`}
           title={pokemon.name}
         />
 
