@@ -17,9 +17,10 @@
 
 .pokemon-ability-items {
   display: flex;
+  flex-direction: column;
 
   .pokemon-ability {
-    margin-right: 18px;
+    margin-bottom: 18px;
     color: white;
     background-color: $pink;
     border: 1px solid $grey;
@@ -50,14 +51,6 @@
         font-size: 12px;
         letter-spacing: 2px;
       }
-    }
-  }
-
-  @include max_breakPoint(767) {
-    flex-direction: column;
-
-    .pokemon-ability {
-      margin-bottom: 18px;
     }
   }
 }
